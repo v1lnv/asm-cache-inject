@@ -17,7 +17,7 @@ clap = { version = "4", features = ["derive"] }
 libc = "0.2"
 
 # Safe wrappers for Unix I/O operations and ioctl calls.
-nix = { version = "0.29", features = ["fs", "ioctl"] }
+nix = { version = "0.31", features = ["fs", "ioctl"] }
 
 # Lock-free concurrent data structures for flush thread coordination.
 crossbeam = "0.8"
