@@ -1,0 +1,14 @@
+version: 2
+updates:
+  # Automatically check for Rust crate updates weekly
+  - package-ecosystem: "cargo"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  # Automatically check for GitHub Actions workflow updates weekly
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      

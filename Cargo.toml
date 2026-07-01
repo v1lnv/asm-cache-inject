@@ -1,0 +1,59 @@
+[package]
+name = "asm-cache-inject"
+version = "0.1.0"
+edition = "2021"
+authors = ["v1lnv <v1lnv@proton.me>"]
+description = "Low-level I/O cache engine with x86_64 ASM acceleration for raw block devices (HDDs, SSDs, etc.)"
+license = "MIT"
+readme = "README.md"
+keywords = ["cache", "io", "assembly", "block-device", "performance"]
+categories = ["command-line-utilities", "filesystem", "hardware-support"]
+
+[dependencies]
+# CLI argument parsing with derive macros.
+clap = { version = "4", features = ["derive"] }
+
+# POSIX syscall bindings (O_DIRECT, pread, pwrite, posix_memalign, ioctl).
+libc = "0.2"
+
+# Safe wrappers for Unix I/O operations and ioctl calls.
+nix = { version = "0.29", features = ["fs", "ioctl"] }
+
+# Lock-free concurrent data structures for flush thread coordination.
+crossbeam = "0.8"
+
+# High-performance synchronization primitives (faster than std Mutex/RwLock).
+parking_lot = "0.12"
+
+# Ergonomic error type derivation.
+thiserror = "2"
+
+# Colored terminal output for benchmark reports.
+colored = "2"
+
+# Progress bars and spinners for long-running operations.
+indicatif = "0.17"
+
+# Structured logging framework.
+log = "0.4"
+
+# Environment-based log configuration (RUST_LOG=debug, etc.).
+env_logger = "0.11"
+
+# Random number generation for random I/O benchmarks.
+rand = "0.8"
+
+# Signal handling for graceful shutdown (SIGINT, SIGTERM).
+ctrlc = "3"
+
+[profile.release]
+# Maximum optimization for production builds.
+opt-level = 3
+# Enable link-time optimization for cross-module inlining.
+lto = true
+# Single codegen unit for best optimization at cost of compile time.
+codegen-units = 1
+# Strip debug symbols for smaller binary.
+strip = true
+# Abort on panic in release (no unwinding overhead).
+panic = "abort"
