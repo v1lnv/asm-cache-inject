@@ -29,7 +29,7 @@ parking_lot = "0.12"
 thiserror = "2"
 
 # Colored terminal output for benchmark reports.
-colored = "2"
+colored = "3"
 
 # Progress bars and spinners for long-running operations.
 indicatif = "0.17"
