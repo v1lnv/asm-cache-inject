@@ -30,16 +30,7 @@ pub fn exec_cache(args: &CacheArgs) -> CacheResult<()> {
     let mut engine = CacheEngine::new(config)?;
     engine.start();
 
-    emit::status(
-        "Injecting",
-        &format!(
-            "cache-engine onto `/dev/{}`",
-            Path::new(&args.device)
-                .file_name()
-                .unwrap_or_else(|| std::ffi::OsStr::new("unknown"))
-                .to_string_lossy()
-        ),
-    );
+    emit::status("Injecting", &format!("cache-engine onto `{}`", args.device));
 
     {
         let _lock = emit::PRINT_MUTEX.lock();

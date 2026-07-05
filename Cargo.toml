@@ -1,6 +1,7 @@
 [package]
 name = "asm-cache-inject"
-version = "0.1.0"
+version = "0.1.1"
+rust-version = "1.87.0"
 edition = "2021"
 authors = ["v1lnv <v1lnv@proton.me>"]
 description = "Low-level I/O cache engine with x86_64 ASM acceleration for raw block devices (HDDs, SSDs, etc.)"
@@ -16,8 +17,6 @@ clap = { version = "4", features = ["derive"] }
 # POSIX syscall bindings (O_DIRECT, pread, pwrite, posix_memalign, ioctl).
 libc = "0.2"
 
-# Safe wrappers for Unix I/O operations and ioctl calls (locked to v0.29.x).
-nix = { version = "~0.29", features = ["fs", "ioctl"] }
 
 # Lock-free concurrent data structures for flush thread coordination.
 crossbeam = "0.8"

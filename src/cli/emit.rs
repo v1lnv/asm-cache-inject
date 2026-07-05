@@ -257,12 +257,9 @@ pub fn device_info(info: &crate::io::DeviceInfo) {
     let size_gib = info.total_bytes as f64 / (1024.0 * 1024.0 * 1024.0);
 
     println!(
-        "{:>12} block-device `/dev/{}`",
+        "{:>12} block-device `{}`",
         "Introspecting".green().bold(),
-        info.path
-            .file_name()
-            .unwrap_or_else(|| std::ffi::OsStr::new("unknown"))
-            .to_string_lossy()
+        info.path.display()
     );
     println!("{} {}", "  -->".blue().bold(), info.path.display());
     println!("{}", "   |".blue().bold());
