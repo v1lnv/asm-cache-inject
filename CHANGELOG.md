@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2026-07-05
+
+### Added
+- **MSRV Update**: Constraint of `1.87.0` specified in `Cargo.toml` for compatibility.
+
+### Changed
+- **CLI Display**: Improved block device path printing to show full/canonical paths (e.g. `/dev/mapper/vg0-lv0`) instead of assuming all devices reside directly under `/dev/`.
+
+### Removed
+- **Dependency Clean**: Unused `nix` dependency removed from `Cargo.toml` to reduce compilation time.
+
 ## [0.1.0] - 2026-07-01
 
 ### Added
