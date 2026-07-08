@@ -31,7 +31,7 @@ thiserror = "2"
 colored = "~2"
 
 # Progress bars and spinners for long-running operations (locked to v0.17.x).
-indicatif = "~0.17"
+indicatif = "~0.18"
 
 # Structured logging framework.
 log = "0.4"
